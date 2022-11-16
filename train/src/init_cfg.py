@@ -21,6 +21,9 @@ def init_cfg_decode_head(cfg, state, classes, class_weights, ind=0):
             class_weight=class_weights,
         )
     )
+
+    cfg.norm_cfg = None
+
     if cfg.pretrained_model != "PointRend" or ind == 0:
         head["norm_cfg"] = cfg.norm_cfg
     if state["decodeHeadLoss"] == "DiceLoss":
